@@ -68,7 +68,7 @@ declaration: method_definition
            ;
 
 statement: expr { $$ = (Statement *)$1; }
-         | method_call { $1->evaluate(); }
+         | method_call { $$ = (Statement *)$1; }
          | while_statement { $$ = (Statement *)$1; }
          | assign_stmt { $$ = (Statement *) $1; }
          ; 
@@ -82,6 +82,7 @@ assign_stmt: ID '=' expr {
 
 statements: statement {  $$ = new list<Statement *>(); $$->push_back($1); }
           | statements ';' statement { $$ = $1; $$->push_back($3); }
+          | statements ';' { $$ = $1; }
           ;
 
 argument_list: expr { $$ = new list<Expr *>(); $$->push_back($1); }
