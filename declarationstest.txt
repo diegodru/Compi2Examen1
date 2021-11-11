@@ -1,0 +1,4 @@
+let area(a, b) = a*b;
+let x = 4
+let y = 2
+area(x,y)

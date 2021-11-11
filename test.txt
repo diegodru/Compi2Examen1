@@ -1,0 +1,4 @@
+let i = 5 + 2
+let a = 2
+let g(c,b) = while(1) do c + b done
+g(3,2)
