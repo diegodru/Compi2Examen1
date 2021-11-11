@@ -80,7 +80,7 @@ float While::evaluate() const{
   while((int)expr->evaluate()){
     list<Statement *>::iterator it = statements->begin();
     while(it != statements->end()){
-      printf("%f\n", (*it)->evaluate());
+      (*it)->evaluate();
       it++;
     }
   }
@@ -88,6 +88,7 @@ float While::evaluate() const{
 }
 
 float Assign::evaluate() const{
+  printf("%s = %f\n", id.c_str(), expr->evaluate());
   variables.at(id) = expr->evaluate();
   return expr->evaluate();
 
